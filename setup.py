@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 from typing import List
 
-HYPEN_E_DOT = '-e .'
+setup_string = '-e .'
 
 
 def get_requirements(file_path: str) -> List[str]:
@@ -14,8 +14,8 @@ def get_requirements(file_path: str) -> List[str]:
         requirements = [req.replace("\n", "") for req in requirements]
 
         # we dont need it in requirements
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
+        if setup_string in requirements:
+            requirements.remove(setup_string)
 
     return requirements
 
