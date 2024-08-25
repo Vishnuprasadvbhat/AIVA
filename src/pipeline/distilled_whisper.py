@@ -65,7 +65,7 @@ class VoicetoText():
 
             logging.info('Text file saved successfully')
 
-            return print(text_data)
+            return text_data
 
         except Exception as e:
             raise CustomException(e,sys)
