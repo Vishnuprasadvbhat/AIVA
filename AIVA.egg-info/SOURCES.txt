@@ -1,0 +1,7 @@
+setup.py
+AIVA.egg-info/PKG-INFO
+AIVA.egg-info/SOURCES.txt
+AIVA.egg-info/dependency_links.txt
+AIVA.egg-info/requires.txt
+AIVA.egg-info/top_level.txt
+src/__init__.py
