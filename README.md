@@ -23,14 +23,14 @@ Design a pipeline that takes a voice query command, converts it into text, uses 
 <ol> 
 <li> Able to Convert the text faster and with less memory compared to Wishper AI and  its quantized models </li>
 <li> Comsumes less computation power</li>
-<li> State of Art WRE of 8 for ` medium-en ` model</li>
+<li> State of Art WRE of 8 for `medium-en`  model</li>
 </ol>
 
 ## Here is the code walkaround of Step-1 
 
 #### Defining a function to convert the voice-to-text data
 
-`     def convert_text(self,input_file):
+` def convert_text(self,input_file):
         logging.info('Audio file entered conversion method')         
         try:
             device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -82,17 +82,17 @@ Design a pipeline that takes a voice query command, converts it into text, uses 
             return text_data
 
         except Exception as e:
-            raise CustomException(e,sys) `
+            raise CustomException(e,sys)  
             
 #### To save the file in a specific folder we have defined a class variable: 
-
-` @dataclass
+` 
+ @dataclass
 class VoiceInputConfig:
     output_file_path = str=os.path.join('query_data') #add this later
 class VoicetoText():
     def __init__(self):
-        self.file_path = VoiceInputConfig() 
-` 
+        self.file_path = VoiceInputConfig() `
+
         
 <H2> Step 2: Building RAG using llama-2 and llamaIndex </H2>
 
