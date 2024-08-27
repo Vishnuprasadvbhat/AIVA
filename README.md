@@ -29,12 +29,13 @@ Design a pipeline that takes a voice query command, converts it into text, uses 
 ## Here is the code walkaround of Step-1 
 
 #### Defining a function to convert the voice-to-text data
+    def convert_text(self,input_file):
+        logging.info('Audio file entered conversion method')
 
-` def convert_text(self,input_file):
-        logging.info('Audio file entered conversion method')         
         try:
+
             device = "cuda:0" if torch.cuda.is_available() else "cpu"
-            torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32 `
+            torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
 
             model_id = "distil-whisper/distil-medium.en"
 
@@ -85,14 +86,8 @@ Design a pipeline that takes a voice query command, converts it into text, uses 
             raise CustomException(e,sys)  
             
 #### To save the file in a specific folder we have defined a class variable: 
-` 
- @dataclass
-class VoiceInputConfig:
-    output_file_path = str=os.path.join('query_data') #add this later
-class VoicetoText():
-    def __init__(self):
-        self.file_path = VoiceInputConfig() `
 
+` output_file_path = str=os.path.join('query_data') `
         
 <H2> Step 2: Building RAG using llama-2 and llamaIndex </H2>
 
