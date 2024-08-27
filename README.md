@@ -31,12 +31,10 @@ Design a pipeline that takes a voice query command, converts it into text, uses 
 #### Defining a function to convert the voice-to-text data
 
 `     def convert_text(self,input_file):
-        logging.info('Audio file entered conversion method')
-
+        logging.info('Audio file entered conversion method')         
         try:
-
             device = "cuda:0" if torch.cuda.is_available() else "cpu"
-            torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
+            torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32 `
 
             model_id = "distil-whisper/distil-medium.en"
 
@@ -91,8 +89,6 @@ Design a pipeline that takes a voice query command, converts it into text, uses 
 ` @dataclass
 class VoiceInputConfig:
     output_file_path = str=os.path.join('query_data') #add this later
-    `
-`
 class VoicetoText():
     def __init__(self):
         self.file_path = VoiceInputConfig() 
